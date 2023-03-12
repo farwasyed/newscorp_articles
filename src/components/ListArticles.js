@@ -56,13 +56,25 @@ function ListArticles({ articles }) {
         const thumbnailId = thumbnailIds[firstIndex + index];
         // const { image, link } = getImageAndLink(thumbnailId) || {};
         return (
+          
           <div className="card" key={index}>
-            <h4>{title.default}</h4>
-            <p>{articleStandFirst[firstIndex + index].default}</p>
-            {/* {image && <img src={image} alt={title.default} />}
+             {/* {image && <img src={image} alt={title.default} />}
             {link} */}
-            <p className="date">{new Date(articleDate[firstIndex + index].live).toString()}</p>
+            <div className="image-container">
+              <img src="https://picsum.photos/400/400" alt="Placeholder image" />
+              <div className="link-container">
+                <a href="https://www.example.com">Read more</a>
+              </div>
+            </div>
+            
+            <div className="content">
+              <h4>{title.default}</h4>
+              <p>{articleStandFirst[firstIndex + index].default}</p>
+              {/* {link} */}
+              <p className="date">{new Date(articleDate[firstIndex + index].live).toString()}</p>
+            </div>
           </div>
+        
         );
       })}
       <button  className="button" onClick={handlePrevClick} disabled={currentPage === 1}>

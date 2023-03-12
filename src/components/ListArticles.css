@@ -70,19 +70,54 @@
   }
   */
   .card {
-    /* border: 2px solid red; */
+    display: flex;
+    align-items: center;
     border-radius: 20px;
     margin-top: 20px;
     padding: 10px 20px 10px 20px;
     background-color: lightgray;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
     font-family: 'Montserrat', sans-serif;
-
   }
+  
   .card:hover {
     transform: scale(0.98);
     background-color: whitesmoke;
   }
-  .date{
-    font-size: .8rem;
+  
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
   }
+  
+  .link-container {
+    margin-top: 10px;
+  }
+  
+  .link-container a {
+    color: black;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  
+  .link-container a:hover {
+    text-decoration: underline;
+  }
+  
+  .content {
+    flex: 1;
+  }
+  
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  
+  .date {
+    font-size: 0.8rem;
+  }
+  
