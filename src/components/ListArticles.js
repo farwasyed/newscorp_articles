@@ -11,28 +11,32 @@ function ListArticles({ articles }) {
   const references = articles.map(ref => ref.references);
   const related = articles.map(related => related.related);
   const thumbnailIds = related.map(item => item.thumbnail.default[0]);
+  // (references.{id}.link.media)
 
-  function getImage(id) {
-    const foundRef = references.find(ref => ref.id === id);
+  function getImage(reference) {
+    const foundRef = references.find(ref => ref.id === reference.id);
     return foundRef?.image ?? null;
   }
-  
-  function getLink(id) {
-    const foundRef = references.find(ref => ref.id === id);
+    
+  function getLink(reference) {
+    const foundRef = references.find(ref => ref.id === reference.id);
     return foundRef?.link?.media ?? null;
   }
   
+  
   function getImageAndLink(id) {
     const index = thumbnailIds.findIndex(thumbnailId => thumbnailId === id);
-
+  
     if (index !== -1) {
-      const { image, link } = getImage(references[index]);
+      const reference = references[index];
+      const image = getImage(reference);
+      const link = getLink(reference);
       console.log({ image, link });
       return { image, link };
     }
     return null;
   }
-
+  
   const lastIndex = currentPage * itemsPerPage;
   const firstIndex = lastIndex - itemsPerPage;
   const displayedTitles = articleTitles.slice(firstIndex, lastIndex);
@@ -54,18 +58,26 @@ function ListArticles({ articles }) {
       <h1>List of News Corp Articles</h1>
       {displayedTitles.map((title, index) => {
         const thumbnailId = thumbnailIds[firstIndex + index];
-        // const { image, link } = getImageAndLink(thumbnailId) || {};
+        const { image, link } = getImageAndLink(thumbnailId) ;
         return (
           
           <div className="card" key={index}>
-             {/* {image && <img src={image} alt={title.default} />}
-            {link} */}
-            <div className="image-container">
-              <img src="https://picsum.photos/400/400" alt="Placeholder image" />
-              <div className="link-container">
-                <a href="https://www.example.com">Read more</a>
+             
+             <div className="image-container">
+                {image ? (
+                  <img src={image} alt={title.default} />
+                ) : (
+                  <img src="https://picsum.photos/400/400" alt="Placeholder image" />
+                )}
+                <div className="link-container">
+                  {link ? (
+                    <a href={link}>Read more</a>
+                  ) : (
+                    <a href="https://www.example.com">Read more</a>
+                  )}
+                </div>
               </div>
-            </div>
+
             
             <div className="content">
               <h4>{title.default}</h4>

@@ -7,7 +7,6 @@ import { useState } from 'react';
 function App() {
   const articles = capi.results;
 
-  console.log(articles, `articles from app`)
   return (
     <div className="App">
       <header className="App-header">
