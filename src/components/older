@@ -1,0 +1,91 @@
+
+//   const [references, setReferences] = useState({});
+//   const [page, setPage] = useState(1);
+//   const [pageSize, setPageSize] = useState(10);
+
+//   // useEffect(() => {
+//   //   setArticles(capi.results);
+//   //   setReferences(capi.references);
+//   // }, []);
+
+//   console.log(articles.fields)
+//   // console.log(references)
+
+//   // const getImageUrl = (id) => {
+//   //   if (!id || !references[id] || !references[id].link || !references[id].link.media) {
+//   //     return "";
+//   //   }
+//   //   return references[id].link.media.href;
+//   // };
+  
+  
+
+//   const pageCount = Math.ceil(articles.length / pageSize);
+//   const visibleArticles = articles.slice((page - 1) * pageSize, page * pageSize);
+
+//   const handlePrevClick = () => {
+//     setPage((prevPage) => Math.max(prevPage - 1, 1));
+//   };
+
+//   const handleNextClick = () => {
+//     setPage((prevPage) => Math.min(prevPage + 1, pageCount));
+//   };
+
+//   return (
+//     <div>
+//       <h1>List of Articles</h1>
+//       <ul>
+//         list of articles will come here
+//         {/* {visibleArticles.map((article) => (
+//           <li key={article.id}>
+//             <h2>{article.title && article.title.title}</h2>
+//             <p>{article.lifecycle && article.lifecycle.initialPublishDateTime}</p>
+//             <p>{article.standFirst && article.standFirst.standfirst}</p>
+//             <img
+//               src={getImageUrl(article.related?.thumbnail?.default?.[0]?.id)}
+//               alt="thumbnail"
+//             />
+//             <a href={article.canonicalWebLink && article.canonicalWebLink.url}>Read more</a>
+//           </li>
+//         ))} */}
+//       </ul>
+//       <div>
+//         <button onClick={handlePrevClick} disabled={page === 1}>
+//           Prev
+//         </button>
+//         <span>
+//           Page {page} of {pageCount}
+//         </span>
+//         <button onClick={handleNextClick} disabled={page === pageCount}>
+//           Next
+//         </button>
+//       </div>
+//     </div>
+//   );
+//   // return (
+//   //   <div>
+//   //     <h1>List of Articles</h1>
+//   //     <ul>
+//   //       {articles.map((article) => (
+//   //         <li key={article.id}>
+//   //           <h2>{article.webTitle}</h2>
+//   //           <p>{new Date(article.webPublicationDate).toLocaleDateString()}</p>
+//   //           <p>{article.fields.standfirst}</p>
+//   //           <img src={article.fields.thumbnail} alt="" />
+//   //           <a href={article.webUrl}>Read more</a>
+//   //         </li>
+//   //       ))}
+//   //     </ul>
+//   //     <div>
+//   //       <button onClick={handlePrevClick} disabled={page === 1}>
+//   //         Prev
+//   //       </button>
+//   //       <span>
+//   //         Page {page} of {pageCount}
+//   //       </span>
+//   //       <button onClick={handleNextClick} disabled={page === pageCount}>
+//   //         Next
+//   //       </button>
+//   //     </div>
+//   //   </div>
+//   // );
